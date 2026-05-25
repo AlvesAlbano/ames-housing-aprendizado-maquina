@@ -33,9 +33,9 @@ def prever_precos(caminho_arquivo_teste):
     X = X.fillna(0)
 
     # 3. Carregamento do modelo
-    caminho_modelo = './modelos/xgboost-baseline.joblib'
-    caminho_modelo = './modelos/catboost-baseline.joblib'
-    caminho_modelo = './modelos/random-forest-baseline.joblib'
+    caminho_modelo = './modelos/xgboost.joblib'
+    # caminho_modelo = './modelos/catboost.joblib'
+    # caminho_modelo = './modelos/random-forest.joblib'
 
     if not os.path.exists(caminho_modelo):
         raise FileNotFoundError(f"O arquivo do modelo '{caminho_modelo}' não foi encontrado na raiz do projeto.")
@@ -72,8 +72,8 @@ if __name__ == "__main__":
             print("\n✅ Sucesso! O pipeline rodou corretamente.")
             print("-" * 30)
             print("Primeiras 5 predições:")
-            # print(resultados[:5])
-            print(resultados)
+            print(resultados[:5])
+            # print(np.expm1(resultados[:5]))
             print("-" * 30)
             
             # Tenta calcular o RMSLE se a coluna alvo estiver no arquivo de teste
